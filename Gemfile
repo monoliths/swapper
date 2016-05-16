@@ -44,16 +44,14 @@ group :development do
 end
 
 # going to use the puma webserver
-gem 'puma'
+  gem 'puma'
 
 
 # make editing css and layouts easy cause I suck at that stuff
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
-
-
-
-
+# simple form to ease form creation
+gem 'simple_form'
 
 # specify our apps ruby version
 ruby '2.3.0'
