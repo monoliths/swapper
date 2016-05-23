@@ -8,7 +8,9 @@ class SessionsController < ApplicationController
       # this is our cookie, see sessions_helper file
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_to user
+      # if the user was trying to access a page which requires a login, the following funciton call will take care of that
+      # else we route the to their user page after they login
+      redirect_back_or user
     else
       flash.now[:danger] = "Invalid login credendials."
       render 'new'

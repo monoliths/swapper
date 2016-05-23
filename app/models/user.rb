@@ -6,13 +6,13 @@ class User < ActiveRecord::Base
   validates :email, presence: true, length: { maximum: 255 },
                     format: {with: VALID_EMAIL_REGEX},
                     uniqueness: {case_sensitive: false}
-  validates :password, presence: true, length: {minimum: 6}
+  validates :password, presence: true, length: {minimum: 6}, allow_nil: true
 
-    # this is a rails built in function, bassically stores our passwords as a hash on the db.
-    # just make sure we have a password_digest atttribute to our users and add the bcrypt gem
+  # this is a rails built in function, bassically stores our passwords as a hash on the db.
+  # just make sure we have a password_digest atttribute to our users and add the bcrypt gem
   has_secure_password
 
-    # computes and returns a hash digest given a string
+  # computes and returns a hash digest given a string
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
