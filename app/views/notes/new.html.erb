@@ -1,0 +1,27 @@
+<h2>New Note</h2>
+
+<%= simple_form_for(@note) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :content, required: true, autofocus: true, input_html: { maxlength: 256, minlength: 1 } %>
+  </div>
+  <div id="textarea_feedback"></div>
+  <div class="form-actions">
+    <%= f.button :submit, "Save Note" %>
+  </div>
+<% end %>
+
+<script>
+    $(document).ready(function() {
+        var text_max = 256;
+        $('#textarea_feedback').html(text_max + ' characters remaining');
+    
+        $('#note_content').keyup(function() {
+            var text_length = $('#note_content').val().length;
+            var text_remaining = text_max - text_length;
+    
+            $('#textarea_feedback').html(text_remaining + ' characters remaining');
+        });
+    });
+</script>

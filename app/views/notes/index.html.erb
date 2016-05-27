@@ -1,6 +1,22 @@
+<table class="table table-striped">
+<thead>
+    <tr>
+      <th>Age</th>
+      <th>Note</th>
+      <th>Created At</th>
+      <th></th>
+    </tr>
+  </thead>
+   <tbody>
 <% @notes.each do |note| %>
-  <p>
-    <%= time_ago_in_words(note.created_at) %> ago: 
-    <%= note.content %>
-  </p>
+  <!-- avoid making multiple call for the same information -->
+  <% created_at = note.created_at %>
+  <tr>
+      <th scope="row"><%= time_ago_in_words(created_at) %> ago:</th>
+      <td><%= note.content %></td>
+      <td><%= created_at %></td>
+      <td><%= link_to "Delete" , "#" %></td>
+  </tr>
 <% end %>
+  </tbody>
+</table>
