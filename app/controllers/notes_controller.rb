@@ -24,6 +24,14 @@ class NotesController < ApplicationController
   end
 
   def destroy
+    note = Note.find_by(id: params[:id])
+    # do stuff
+    if note.destroy
+      flash[:notice] = "Successfully deleted note"
+    else
+      flash[:danger] = "Error deleting note. Please contact web admin on 'About' page"
+    end
+    redirect_to notes_path
   end
 
   private
