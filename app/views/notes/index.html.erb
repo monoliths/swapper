@@ -8,12 +8,13 @@
     </tr>
   </thead>
    <tbody>
+
 <% @notes.each do |note| %>
   <!-- avoid making multiple call for the same information -->
   <% created_at = note.created_at %>
   <tr>
       <th scope="row"><%= time_ago_in_words(created_at) %> old.</th>
-      <td><%= note.content %></td>
+      <td><%= raw(@note_formatted.call(note.content)) %></td>
       <td><%= created_at %></td>
       <td><%= link_to "Delete" , note,
               class: "btn btn-sm btn-danger", method: :delete %></td>
@@ -24,3 +25,5 @@
 <% if @notes.count == 0 %>
   <h1 class="text-center">No notes!<h1>
 <% end %>
+
+<%= will_paginate @notes, renderer: BootstrapPagination::Rails %>

@@ -53,5 +53,11 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 # simple form to ease form creation
 gem 'simple_form'
 
+# used for generating links
+gem 'auto_html'
+
+# add pages to our notes instead of scrolling
+gem 'will_paginate-bootstrap'
+
 # specify our apps ruby version
 ruby '2.3.0'

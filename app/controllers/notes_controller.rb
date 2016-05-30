@@ -1,6 +1,7 @@
 class NotesController < ApplicationController
   def index
-    @notes = current_user.notes.order(created_at: :desc )
+    @notes = current_user.notes.order(created_at: :desc ).paginate(page: params[:page], per_page: 10)
+    @note_formatted = AutoHtml::Link.new(target: '_blank')
   end
 
   def show
