@@ -59,5 +59,8 @@ gem 'auto_html'
 # add pages to our notes instead of scrolling
 gem 'will_paginate-bootstrap'
 
+# rails 12 factor for heroku
+gem 'rails_12factor'
+
 # specify our apps ruby version
 ruby '2.3.0'
