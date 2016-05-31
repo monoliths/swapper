@@ -16,5 +16,8 @@
 <% end %>
 <br>
 <%= gravatar_for @user %>
-<%= link_to "Change Gravatar", "http://gravatar.com/emails", target: "_blank" %><br>
-<%= link_to "Delete my account", @user, method: :delete, data: { confirm: "You sure? This cant be undone!" } %>      
+<%= link_to "Change Gravatar", "http://gravatar.com/emails", class: "btn btn-sm btn-default", target: "_blank" %>
+<br><br>
+
+<%= link_to "Delete my account", @user, method: :delete, class: "btn btn-sm btn-danger",
+                data: { confirm: "You sure? This cant be undone!" } %>
