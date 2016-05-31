@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = "Welcome, account created! Have fun storing some notes."
       log_in @user
-      redirect_to @user
+      redirect_to root_path
     else
       render 'new'
     end
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = "Changes Saved!"
-      redirect_to @user
+      redirect_to root_path
     else
       render 'edit'
     end

@@ -4,4 +4,7 @@ class PagesController < ApplicationController
       redirect_to notes_path
     end
   end
+
+  def about
+  end
 end
